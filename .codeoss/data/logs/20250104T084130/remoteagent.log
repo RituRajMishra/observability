@@ -1,0 +1,11 @@
+2025-01-04 08:41:30.955 [info] 
+
+
+
+
+2025-01-04 08:41:30.970 [info] Extension host agent started.
+2025-01-04 08:41:30.986 [info] Started initializing default profile extensions in extensions installation folder. file:///home/rrmdevops21/.codeoss/extensions
+2025-01-04 08:41:30.999 [info] Completed initializing default profile extensions in extensions installation folder. file:///home/rrmdevops21/.codeoss/extensions
+2025-01-04 08:41:34.394 [info] [127.0.0.1][7ee0f148][ManagementConnection] New connection established.
+2025-01-04 08:41:34.524 [info] [127.0.0.1][6ed2c995][ExtensionHostConnection] New connection established.
+2025-01-04 08:41:36.490 [info] [127.0.0.1][6ed2c995][ExtensionHostConnection] <1244> Launched Extension Host Process.

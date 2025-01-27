@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otel-java-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: otel-java-app
+  template:
+    metadata:
+      labels:
+        app: otel-java-app
+    spec:
+      containers:
+      - name: otel-java-app
+        image: us-east4-docker.pkg.dev/stately-block-446514-u4/jaeger-demo/otel-java-app:v1
+        ports:
+        - containerPort: 8080
+        env:
+        - name: OTEL_SERVICE_NAME
+          value: "java-demo-service"
+        - name: OTEL_EXPORTER_OTLP_ENDPOINT
+          value: "http://otel-collector.obs-system:4317"
+        - name: OTEL_TRACES_SAMPLER
+          value: "parentbased_always_on"
+        - name: OTEL_PROPAGATORS
+          value: "tracecontext,baggage,b3"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: otel-java-app
+spec:
+  selector:
+    app: otel-java-app
+  ports:
+  - port: 80
+    targetPort: 8080
+  type: LoadBalancer
